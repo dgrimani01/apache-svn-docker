@@ -17,7 +17,7 @@ $ docker run -d -p 80:80 --name some-name -v /local/path:/var/svn/ kostasns/apac
 ### Getting started
 #### create a repository
 ```console
-$ docker exec -it some-name svnadmin create /var/svn/new_repo
+$ docker exec -it some-name svnadmin create /var/svn/<repo_name>
 ```
 
 #### create users 
