@@ -25,12 +25,12 @@ RUN apt-key add /tmp/wandisco-debian.gpg \
 	#Apache and SVN configugration
     && mkdir "${SVN_REPO_HOME}" && touch "${SVN_AUTH_FILE}" \
     && chown -R www-data:www-data "${SVN_REPO_HOME}" \
-	&& mv /tmp/svn /etc/apache2/sites-available/svn \
+    && mv /tmp/svn /etc/apache2/sites-available/svn \
     && a2enmod dav_svn && a2ensite svn && a2dissite 000-default \
     	
 	#Dirty way to change the values to ENV ones. 
 	#If anyone knows a better one, I'd appreciate the info.
-	&& sed -i "s|SVN_REPO_HOME|${SVN_REPO_HOME}|g" /etc/apache2/sites-available/svn \
+    && sed -i "s|SVN_REPO_HOME|${SVN_REPO_HOME}|g" /etc/apache2/sites-available/svn \
     && sed -i "s|SVN_AUTH_FILE|${SVN_AUTH_FILE}|g" /etc/apache2/sites-available/svn \
 
 	#Setting tini to be executable and final clean of the cache and temp folders
