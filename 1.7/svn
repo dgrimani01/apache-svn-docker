@@ -1,0 +1,22 @@
+<VirtualHost *:80>
+    ServerAdmin docker@localhost
+    ServerName localhost 
+    DocumentRoot SVN_REPO_HOME
+    <Directory SVN_REPO_HOME>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
+    <Location />
+        DAV svn                                
+        SVNParentPath SVN_REPO_HOME                 
+        AuthType Basic                         
+        AuthName "Subversion"                  
+        AuthUserFile SVN_AUTH_FILE
+        Require valid-user                     
+    </Location>
+    LogLevel warn                              
+    ErrorLog ${APACHE_LOG_DIR}/svn.error.log
+    CustomLog ${APACHE_LOG_DIR}/svn.access.log combined
+</VirtualHost>
