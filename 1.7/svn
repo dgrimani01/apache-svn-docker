@@ -14,6 +14,7 @@
         AuthType Basic                         
         AuthName "Subversion"                  
         AuthUserFile SVN_AUTH_FILE
+        AuthzSVNAccessFile SVN_DAV_FILE
         Require valid-user                     
     </Location>
     LogLevel warn                              
