@@ -3,6 +3,7 @@ MAINTAINER Kostas <kostas@nuclearshoebox.com>
 
 ENV SVN_REPO_HOME /var/svn
 ENV SVN_AUTH_FILE ${SVN_REPO_HOME}/svn-auth
+ENV SVN_DAV_FILE ${SVN_REPO_HOME}/dav_svn.authz
 
 ENV TINI_VERSION v0.10.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /bin/tini
